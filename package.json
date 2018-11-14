@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kevindurb/router/issues"
   },
-  "homepage": "https://github.com/kevindurb/router#readme"
+  "homepage": "https://github.com/kevindurb/router#readme",
+  "dependencies": {
+    "path-to-regexp": "^2.4.0"
+  }
 }
