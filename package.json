@@ -21,9 +21,9 @@
     "path-to-regexp": "^2.4.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
-    "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
