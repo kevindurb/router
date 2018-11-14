@@ -1,3 +1,7 @@
 import router from './router';
+import hashHistoryListener from './hashHistoryListener';
 
-export default router;
+export default {
+  router,
+  hashHistoryListener,
+};
