@@ -1,7 +1,7 @@
 {
-  "name": "router",
+  "name": "@kevindurb/router",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple js router designed to solve one problem outside of any other frameworks like React, Angular, or Vue",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
