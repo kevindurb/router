@@ -1,7 +1,7 @@
 import router from './router';
-import hashHistoryListener from './hashHistoryListener';
+import historyMount from './historyMount';
 
 export default {
   router,
-  hashHistoryListener,
+  historyMount,
 };
