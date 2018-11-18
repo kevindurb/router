@@ -5,3 +5,8 @@ export default {
   router,
   historyMount,
 };
+
+export {
+  router,
+  historyMount,
+};
