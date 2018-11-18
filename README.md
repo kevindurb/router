@@ -1,3 +1,4 @@
+[![npm (scoped)](https://img.shields.io/npm/v/:scope/:package.svg)](https://npmjs.com/package/@kevindurb/router)
 # router
 A simple js router designed to solve one problem outside of any other frameworks
 like React, Angular, or Vue
