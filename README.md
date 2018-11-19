@@ -33,7 +33,7 @@ npm install --save history
 
 ```javascript
 import createHistory from 'history/createBrowserHistory';
-import { router, mountHistory } from '@kevindurb/router';
+import { router, historyMount } from '@kevindurb/router';
 
 const history = createHistory();
 const app = router();
@@ -46,7 +46,7 @@ app.add('/people/:id', ({ id }) => {
   console.log('load person with id: ', id);
 });
 
-history.listen(mountHistory(app));
+history.listen(historyMount(app));
 
 history.push('/people/65'); // load person with id: 65
 
