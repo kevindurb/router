@@ -26,6 +26,34 @@ app.exec('/people/256'); // load person with id: 256
 app.exec('/people'); // showing people!
 ```
 
+## onMatch
+onMatch and offMatch let you add a listener for ANY route matches. You can also
+pass strings in instead of callbacks as the second argument that get passed into
+your onMatch callback. This works great with setting the current route in a
+global store like redux or setState in react.
+```javascript
+import { router } from '@kevindurb/router';
+
+const app = router();
+
+app.add('/people', 'PEOPLE');
+app.add('/people/:id', 'PERSON');
+
+app.onMatch((key, params) => {
+  switch (key) {
+    case 'PERSON':
+      console.log('person! ', params.id);
+      break;
+    case 'PEOPLE':
+      console.log('people!!');
+      break;
+  }
+});
+
+app.exec('/people/256'); // person! 256
+app.exec('/people'); // people!!
+```
+
 ## Usage with history package
 ```bash
 npm install --save history

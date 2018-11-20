@@ -48,4 +48,36 @@ describe('a router', () => {
     expect(callback).toBeCalled();
     expect(another).not.toBeCalled();
   });
+
+  it('should call onMatch for every matched exec', () => {
+    const onMatch = jest.fn();
+    const callback = jest.fn();
+    const app = router();
+    app.add('/hello', callback);
+    app.onMatch(onMatch);
+    app.exec('/hello');
+
+    expect(onMatch).toBeCalledWith(callback, {});
+  });
+
+  it('should not call the second arg of its not a function', () => {
+    const onMatch = jest.fn();
+    const app = router();
+    app.add('/hello', 'aKey');
+    app.onMatch(onMatch);
+    app.exec('/hello');
+
+    expect(onMatch).toBeCalledWith('aKey', {});
+  });
+
+  it('should be able to unsubscribe', () => {
+    const onMatch = jest.fn();
+    const app = router();
+    app.add('/hello', 'aKey');
+    app.onMatch(onMatch);
+    app.offMatch(onMatch);
+    app.exec('/hello');
+
+    expect(onMatch).not.toBeCalledWith('aKey', {});
+  });
 });

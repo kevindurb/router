@@ -8,20 +8,38 @@ const zip = (a, b) =>
 class Router {
   constructor() {
 
-    this.routes = [
-    ];
+    this.routes = [];
+    this.sunscribers = [];
   }
 
-  add(route, fn) {
+  add(route, fnOrKey) {
     let keys = [];
     const regex = pathToRegexp(route, keys);
 
     this.routes.push({
       regex,
       keys,
-      fn,
+      fnOrKey,
     });
 
+    return this;
+  }
+
+  onMatch(fn) {
+    this.sunscribers.push(fn);
+    return this;
+  }
+
+  offMatch(fn) {
+    this.sunscribers = this.sunscribers
+      .filter((subscriber) => subscriber !== fn);
+    return this;
+  }
+
+  handleSubscribers(fnOrKey, params) {
+    this.sunscribers.forEach((subscriber) => {
+      subscriber(fnOrKey, params);
+    });
     return this;
   }
 
@@ -32,7 +50,7 @@ class Router {
       const {
         regex,
         keys,
-        fn,
+        fnOrKey,
       } = matchingRoute;
 
       const result = regex.exec(path);
@@ -42,7 +60,12 @@ class Router {
         values
       );
 
-      fn(params);
+      if (typeof fnOrKey === 'function') {
+        fnOrKey(params);
+      }
+
+
+      this.handleSubscribers(fnOrKey, params);
     }
 
     return this;
