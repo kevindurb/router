@@ -27,9 +27,9 @@ app.exec('/people'); // showing people!
 ```
 
 ## onMatch
-onMatch and offMatch let you add a listener for ANY route matches. You can also
-pass strings in instead of callbacks as the second argument that get passed into
-your onMatch callback. This works great with setting the current route in a
+`onMatch` and `offMatch` let you add a listener for ANY route matches. You can also
+pass strings in instead of callbacks as the second argument to `add` that get passed into
+your `onMatch` callback. This works great with setting the current route in a
 global store like redux or setState in react.
 ```javascript
 import { router } from '@kevindurb/router';
