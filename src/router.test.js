@@ -80,4 +80,15 @@ describe('a router', () => {
 
     expect(onMatch).not.toBeCalledWith('aKey', {});
   });
+
+  it('should not call classes as functions', () => {
+    const onMatch = jest.fn();
+    const app = router();
+    class MyClass {}
+    app.add('/hello', MyClass);
+    app.onMatch(onMatch);
+    app.exec('/hello');
+
+    expect(onMatch).toBeCalled();
+  });
 });

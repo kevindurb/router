@@ -5,6 +5,10 @@ const routeMatchesPath = (path) => ({ regex }) => regex.test(path);
 const zip = (a, b) =>
   a.reduce((acc, k, i) => ({ ...acc, [k]: b[i] }), {});
 
+const isFunction = (obj) =>
+ Object.prototype.toString.call(obj) === '[object Function]';
+
+
 class Router {
   constructor() {
 
@@ -60,8 +64,12 @@ class Router {
         values
       );
 
-      if (typeof fnOrKey === 'function') {
-        fnOrKey(params);
+      if (isFunction(fnOrKey)) {
+        try {
+          fnOrKey(params);
+        } catch (e) {
+          // nothing to do here
+        }
       }
 
 
