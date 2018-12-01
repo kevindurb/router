@@ -13,7 +13,7 @@ class Router {
   constructor() {
 
     this.routes = [];
-    this.sunscribers = [];
+    this.subscribers = [];
   }
 
   add(route, fnOrKey) {
@@ -30,18 +30,18 @@ class Router {
   }
 
   onMatch(fn) {
-    this.sunscribers.push(fn);
+    this.subscribers.push(fn);
     return this;
   }
 
   offMatch(fn) {
-    this.sunscribers = this.sunscribers
+    this.subscribers = this.subscribers
       .filter((subscriber) => subscriber !== fn);
     return this;
   }
 
   handleSubscribers(fnOrKey, params) {
-    this.sunscribers.forEach((subscriber) => {
+    this.subscribers.forEach((subscriber) => {
       subscriber(fnOrKey, params);
     });
     return this;
