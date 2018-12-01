@@ -54,6 +54,22 @@ app.exec('/people/256'); // person! 256
 app.exec('/people'); // people!!
 ```
 
+## pathFromRoute
+`pathFromRoute` will let you dry up your code with reproducable routes
+```javascript
+import { router, pathFromRoute } from '@kevindurb/router';
+
+const PERSON_ROUTE = '/people/:id';
+
+const app = router();
+
+app.add(PERSON_ROUTE, (params) => {
+  console.log('person! ', params.id)
+});
+
+app.exec(pathFromRoute(PERSON_ROUTE, { id: 256 })); // person! 256
+```
+
 ## Usage with history package
 ```bash
 npm install --save history
