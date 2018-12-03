@@ -1,5 +1,6 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@kevindurb/router.svg)](https://npmjs.com/package/@kevindurb/router)
 [![Travis (.org)](https://img.shields.io/travis/kevindurb/router.svg)](https://travis-ci.org/kevindurb/router)
+[![David](https://img.shields.io/david/kevindurb/router.svg)](https://david-dm.org/kevindurb/router)
 
 # router
 A simple js router designed to solve one problem outside of any other frameworks
