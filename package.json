@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/kevindurb/router#readme",
   "dependencies": {
-    "path-to-regexp": "^2.4.0"
+    "path-to-regexp": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
