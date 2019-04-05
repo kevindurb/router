@@ -31,6 +31,7 @@
     "jest": "^23.6.0"
   },
   "jest": {
+    "testEnvironment": "node",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }

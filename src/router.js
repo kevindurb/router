@@ -5,8 +5,13 @@ const routeMatchesPath = (path) => ({ regex }) => regex.test(path);
 const zip = (a, b) =>
   a.reduce((acc, k, i) => ({ ...acc, [k]: b[i] }), {});
 
+const FUNCTION_TYPES = [
+  '[object Function]',
+  '[object AsyncFunction]',
+];
+
 const isFunction = (obj) =>
- Object.prototype.toString.call(obj) === '[object Function]';
+  FUNCTION_TYPES.includes(Object.prototype.toString.call(obj));
 
 
 class Router {

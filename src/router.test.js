@@ -95,8 +95,8 @@ describe('a router', () => {
   it('should call async functions', () => {
     const tester = jest.fn();
     const app = router();
-    app.add('/hello', async () => tester());
-    app.exec('/hello');
+    app.add('/ello', async () => tester());
+    app.exec('/ello');
 
     expect(tester).toBeCalled();
   });
